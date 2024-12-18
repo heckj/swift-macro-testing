@@ -461,6 +461,8 @@ extension FixIt.Change {
         range: start..<end,
         replacement: newTrivia.description
       )
+    case .replaceChild(data: let anyChild):
+      return SourceEdit(range: anyChild.replacementRange, replacement: anyChild.newChild.description)
     }
   }
 }
